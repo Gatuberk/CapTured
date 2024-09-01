@@ -30,4 +30,7 @@ export class UsersEntity{
     @Column()
     usr_active: boolean;
 
+    @Column({type: 'timestamp', default: ()=> "CURRENT_TIMESTAMP"})
+    usr_fechaInicio: Date;
+
 }
