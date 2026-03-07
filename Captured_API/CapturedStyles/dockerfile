@@ -1,0 +1,13 @@
+# Stage 1: Build the application
+FROM maven:3.9.4-eclipse-temurin-17-alpine AS build
+WORKDIR /app
+COPY . .
+RUN mvn clean package -DskipTests
+
+# Stage 2: Create the final runtime image
+FROM eclipse-temurin:17-jre-alpine
+WORKDIR /app
+# Copy the JAR file from the 'build' stage to the current stage
+COPY --from=build /app/target/*.jar ./java-application.jar
+EXPOSE 8080
+CMD ["java", "-jar", "java-application.jar"]

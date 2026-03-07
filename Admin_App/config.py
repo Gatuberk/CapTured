@@ -1,6 +1,0 @@
-color-primary= "#4b77d5"
-color-primary-hover= "#4425ab"
-color-verde= "#04a75b"
-color-negro= "#ffffff"
-color-fondo= "000000"
-color-footer= "#151515"
